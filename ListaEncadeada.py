@@ -30,11 +30,36 @@ class ListaEncadeada:
         atu = ant.getProximo()
       ant.setProximo(None)
     return atu
-
-
+  def insereOrdenado(self, no):
+    ant = self.__cabeca
+    atu = ant.getProximo()
+    while atu != None and no.getChave() > atu.getChave():
+      ant = atu 
+      atu = atu.getProximo()
+    no.setProximo(atu)
+    ant.setProximo(no)
+  def retiraPelaChave(self, chave):
+    ant = self.__cabeca
+    atu = ant.getProximo()
+    while atu != None and atu.getChave() != chave:
+      ant = atu
+      atu = atu.getProximo()
+    if atu != None:
+      ant.setProximo(atu.getProximo())
+      atu.setProximo(None)
+    return atu
 
   def mostraLista(self):
     atual = self.__cabeca.getProximo()
     while atual != None:
       print(atual.getValores())
       atual = atual.getProximo()
+
+# Exercício 3: Quantidade de elementos na lista
+def quantidadeDeElementos(self):
+  qtd = 0
+  atual = self.__cabeca.getProximo()
+  while atual != None:
+    qtd = qtd + 1
+    atual = atual.getProximo() 
+  return qtd
