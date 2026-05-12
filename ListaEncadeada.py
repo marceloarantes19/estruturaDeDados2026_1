@@ -56,10 +56,10 @@ class ListaEncadeada:
       atual = atual.getProximo()
 
 # Exercício 3: Quantidade de elementos na lista
-def quantidadeDeElementos(self):
-  qtd = 0
-  atual = self.__cabeca.getProximo()
-  while atual != None:
-    qtd = qtd + 1
-    atual = atual.getProximo() 
-  return qtd
+  def quantidadeDeElementos(self):
+    qtd = 0
+    atual = self.__cabeca.getProximo()
+    while atual != None:
+      qtd = qtd + 1
+      atual = atual.getProximo() 
+    return qtd
