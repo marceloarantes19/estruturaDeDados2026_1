@@ -11,6 +11,10 @@ while True:
   print("5  - Inserir ordenado")
   print("6  - Retirar pela chave")
   print("7  - Quantidade de elementos")
+  print("8  - Mostrar lista recursivamente")
+  print("9  - Mostrar lista recursivamente inversa")
+  print("10 - Inserir na posição")
+  print("11 - Retirar da posição")
   print("-1 - Sair")
   op = int(input("Digite a opção: "))
   if op == -1:
@@ -46,3 +50,22 @@ while True:
       print("Chave não encontrada")
   elif op == 7:
     print("Quantidade de elementos: ", l.quantidadeDeElementos())
+  elif op == 8:
+    l.mostraListaRecursiva(l.getPrimeiro())
+  elif op == 9:
+    l.mostraListaInvertida(l.getPrimeiro())
+  elif op == 10:
+    c = int(input("Digite a chave: "))
+    nome = input("Digite o nome: ")
+    e = Elemento(c, nome)
+    no = No(e)
+    pos = int(input("Digite a posição: "))
+    if not l.insereNaPosicao(no, pos):
+      print("Posição inválida")
+  elif op == 11:
+    pos = int(input("Digite a posição: "))
+    no = l.retiraNaPosicao(pos)
+    if no != None:
+      print("Retirado: ", no.getValores())
+    else:
+      print("Posição inválida")

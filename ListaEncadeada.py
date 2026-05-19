@@ -63,3 +63,47 @@ class ListaEncadeada:
       qtd = qtd + 1
       atual = atual.getProximo() 
     return qtd
+  def getPrimeiro(self):
+    return self.__cabeca.getProximo()
+  def mostraListaRecursiva(self, no):
+    if no != None: 
+      print(no.getValores())
+      self.mostraListaRecursiva(no.getProximo())
+  def mostraListaInvertida(self, no):
+    if no != None: 
+      self.mostraListaInvertida(no.getProximo())
+      print(no.getValores())
+  def insereNaPosicao(self, no, pos): 
+    inseriu = False
+    if pos > 0 and pos <= self.quantidadeDeElementos()+1:
+      i = 1
+      ant = self.__cabeca 
+      atu = ant.getProximo() 
+      while i< pos and atu != None:
+        ant = atu
+        atu = atu.getProximo()
+        i = i + 1 
+      no.setProximo(atu)
+      ant.setProximo(no)
+      inseriu = True
+    return inseriu 
+  def retiraNaPosicao(self, pos):
+    ret = None
+    if pos > 0 and pos <= self.quantidadeDeElementos():
+      i = 1
+      ant = self.__cabeca
+      atu = self.getPrimeiro()
+      while i < pos:
+        ant = atu
+        atu = atu.getProximo()
+        i = i + 1
+      ret = atu
+      ant.setProximo(atu.getProximo())
+      atu.setProximo(None)
+    return ret
+  def limpaLista(self):
+    self.limpa(self.__cabeca)
+  def limpa(self, no):
+    if no != None:
+      self.limpa(no.getProximo())
+      no.setProximo(None)
